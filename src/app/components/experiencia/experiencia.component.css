@@ -47,6 +47,7 @@ input[type="text"], textarea, select {
   box-sizing: border-box;
 }
 
+
 textarea {
   height: 120px; /* Tamaño fijo para el área de texto */
   resize: none; /* Evitar el redimensionamiento */
