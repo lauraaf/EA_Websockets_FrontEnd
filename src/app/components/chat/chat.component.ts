@@ -32,6 +32,8 @@ export class ChatComponent implements OnInit {
       this.messages.push({ text: this.message, type: 'sent' });;
       this.chatService.sendMessage(this.message);
       this.message = '';
+      this.scrollToBottom(); // Forzar el scroll hacia abajo
+
     }
   }
 
@@ -40,9 +42,16 @@ export class ChatComponent implements OnInit {
       console.log('Mensaje recibido:', data);
       this.messages.push({ text: data, type: 'received' });
       console.log(data);
+      this.scrollToBottom(); // Forzar el scroll hacia abajo cuando se recibe un mensaje
     });
   }
-
+  
+  scrollToBottom(): void {
+    const messageContainer = document.querySelector('.chat-messages');
+    if (messageContainer) {
+      messageContainer.scrollTop = messageContainer.scrollHeight;
+    }
+  }
 
 }
 
